@@ -7,12 +7,12 @@
 </form>
 <!-- 穴埋めをしよう -->
 <% if @posts && @posts.any? %>
-  <% for post in @posts do %>
-    <a href="/posts/<%= post.id %>" class="post">
+  <% @posts.each do |post| %>
+    <a href="/posts/<%= post.id %>" class="POST">
       <div class="post-info">
         <p class="post-user-name"><%= post.user.name %></p>
-        <p class="post-user-id">@<%= post.user.user_id %></p>
-        <p class="post-created-at"><%= post.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+        <p class="post-user-id">@<%= post.user_id %></p>
+        <p class="post-created-at"><%= post.created_at.strftime("%Y/%m/%d %H:%M:%S") %></p>
       </div>
       <p><%= post.content %></p>
       <div class="post-comment-info">
